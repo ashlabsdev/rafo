@@ -151,3 +151,86 @@ button {
 button:hover {
   background: #00d97e;
 }
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  margin-top: 20px;
+
+  padding: 14px;
+
+  background: rgba(255, 80, 80, 0.1);
+
+  border: 1px solid rgba(255, 80, 80, 0.3);
+
+  border-radius: 8px;
+
+  color: #ff6b6b;
+}
+
+.result-card {
+  margin-top: 28px;
+
+  padding: 24px;
+
+  background: #0b0b0b;
+
+  border: 1px solid #222222;
+
+  border-radius: 12px;
+}
+
+.result-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 13px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+
+  color: #9ca3af;
+}
+
+.result-value {
+  margin-bottom: 16px;
+
+  color: #00f48e;
+
+  font-size: 32px;
+
+  font-weight: 700;
+}
+
+.result-formula {
+  margin-bottom: 20px;
+
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid #222222;
+
+  color: #ffffff;
+
+  font-size: 18px;
+}
+
+.calculation-steps h3 {
+  margin-bottom: 12px;
+
+  color: #ffffff;
+
+  font-size: 16px;
+}
+
+.calculation-steps p {
+  margin: 6px 0;
+
+  color: #9ca3af;
+
+  font-family: monospace;
+}

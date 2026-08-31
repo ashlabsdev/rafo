@@ -3,7 +3,9 @@
   <div class="calculator-card">
 
     <div class="calculator-header">
-      <span class="category">Electrical Fundamentals</span>
+      <span class="category">
+        Electrical Fundamentals
+      </span>
 
       <h1>Ohm's Law</h1>
 
@@ -12,72 +14,189 @@
       </p>
     </div>
 
+
     <div class="formula">
       V = I × R
     </div>
 
-    <div class="calculator-form">
 
-      <label for="operation">
-        Calculate
-      </label>
-
-      <select id="operation">
-        <option value="calculate-voltage">
-          Voltage
-        </option>
-
-        <option value="calculate-current">
-          Current
-        </option>
-
-        <option value="calculate-resistance">
-          Resistance
-        </option>
-      </select>
-
+    <form
+      class="calculator-form"
+      [formGroup]="calculatorForm"
+      (ngSubmit)="calculate()"
+    >
 
       <div class="input-group">
 
-        <label>
-          Current
+        <label for="operation">
+          Calculate
         </label>
 
-        <div class="input-with-unit">
-          <input
-            type="number"
-            placeholder="Enter current"
-          />
+        <select
+          id="operation"
+          formControlName="operation"
+        >
 
-          <span>A</span>
-        </div>
+          <option value="calculate-voltage">
+            Voltage
+          </option>
+
+          <option value="calculate-current">
+            Current
+          </option>
+
+          <option value="calculate-resistance">
+            Resistance
+          </option>
+
+        </select>
 
       </div>
 
 
-      <div class="input-group">
+      @if (selectedOperation === 'calculate-current' ||
+           selectedOperation === 'calculate-resistance') {
 
-        <label>
-          Resistance
-        </label>
+        <div class="input-group">
 
-        <div class="input-with-unit">
-          <input
-            type="number"
-            placeholder="Enter resistance"
-          />
+          <label for="voltage">
+            Voltage
+          </label>
 
-          <span>Ω</span>
+          <div class="input-with-unit">
+
+            <input
+              id="voltage"
+              type="number"
+              formControlName="voltage"
+              placeholder="Enter voltage"
+            />
+
+            <span>V</span>
+
+          </div>
+
         </div>
 
-      </div>
+      }
 
 
-      <button>
-        Calculate
+      @if (selectedOperation === 'calculate-voltage' ||
+           selectedOperation === 'calculate-resistance') {
+
+        <div class="input-group">
+
+          <label for="current">
+            Current
+          </label>
+
+          <div class="input-with-unit">
+
+            <input
+              id="current"
+              type="number"
+              formControlName="current"
+              placeholder="Enter current"
+            />
+
+            <span>A</span>
+
+          </div>
+
+        </div>
+
+      }
+
+
+      @if (selectedOperation === 'calculate-voltage' ||
+           selectedOperation === 'calculate-current') {
+
+        <div class="input-group">
+
+          <label for="resistance">
+            Resistance
+          </label>
+
+          <div class="input-with-unit">
+
+            <input
+              id="resistance"
+              type="number"
+              formControlName="resistance"
+              placeholder="Enter resistance"
+            />
+
+            <span>Ω</span>
+
+          </div>
+
+        </div>
+
+      }
+
+
+      <button
+        type="submit"
+        [disabled]="isCalculating"
+      >
+
+        @if (isCalculating) {
+          Calculating...
+        } @else {
+          Calculate
+        }
+
       </button>
 
-    </div>
+    </form>
+
+
+    @if (calculationError) {
+
+      <div class="error-message">
+        {{ calculationError }}
+      </div>
+
+    }
+
+
+    @if (calculationResult) {
+
+      <div class="result-card">
+
+        <span class="result-label">
+          Result
+        </span>
+
+        <div class="result-value">
+          {{ calculationResult.result }}
+          {{ calculationResult.unit }}
+        </div>
+
+
+        <div class="result-formula">
+          {{ calculationResult.formula }}
+        </div>
+
+
+        <div class="calculation-steps">
+
+          <h3>Calculation</h3>
+
+          @for (
+            step of calculationResult.steps;
+            track step
+          ) {
+
+            <p>{{ step }}</p>
+
+          }
+
+        </div>
+
+      </div>
+
+    }
 
   </div>
 
