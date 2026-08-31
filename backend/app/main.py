@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.api.routes import formulas
+from app.api.routes import calculations, formulas
 
 app = FastAPI(
     title="Rafo API",
@@ -8,6 +8,7 @@ app = FastAPI(
 )
 
 app.include_router(formulas.router)
+app.include_router(calculations.router)
 
 @app.get("/")
 def root():
