@@ -1,0 +1,84 @@
+<div class="calculator-page">
+
+  <div class="calculator-card">
+
+    <div class="calculator-header">
+      <span class="category">Electrical Fundamentals</span>
+
+      <h1>Ohm's Law</h1>
+
+      <p>
+        Calculate voltage, current, or resistance using Ohm's Law.
+      </p>
+    </div>
+
+    <div class="formula">
+      V = I × R
+    </div>
+
+    <div class="calculator-form">
+
+      <label for="operation">
+        Calculate
+      </label>
+
+      <select id="operation">
+        <option value="calculate-voltage">
+          Voltage
+        </option>
+
+        <option value="calculate-current">
+          Current
+        </option>
+
+        <option value="calculate-resistance">
+          Resistance
+        </option>
+      </select>
+
+
+      <div class="input-group">
+
+        <label>
+          Current
+        </label>
+
+        <div class="input-with-unit">
+          <input
+            type="number"
+            placeholder="Enter current"
+          />
+
+          <span>A</span>
+        </div>
+
+      </div>
+
+
+      <div class="input-group">
+
+        <label>
+          Resistance
+        </label>
+
+        <div class="input-with-unit">
+          <input
+            type="number"
+            placeholder="Enter resistance"
+          />
+
+          <span>Ω</span>
+        </div>
+
+      </div>
+
+
+      <button>
+        Calculate
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
