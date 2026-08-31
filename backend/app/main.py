@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from app.api.routes import formulas
 
 app = FastAPI(
     title="Rafo API",
@@ -6,6 +7,7 @@ app = FastAPI(
     version="0.1.0"
 )
 
+app.include_router(formulas.router)
 
 @app.get("/")
 def root():
