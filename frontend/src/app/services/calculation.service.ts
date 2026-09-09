@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 import {
   CalculationRequest,
@@ -13,7 +14,8 @@ import {
 })
 export class CalculationService {
 
-  private readonly apiUrl = 'http://127.0.0.1:8000/api/calculate';
+  private readonly apiUrl =
+  `${environment.apiUrl}/api/calculate`;
 
   constructor(
     private readonly http: HttpClient,
