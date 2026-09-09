@@ -15,7 +15,7 @@ app = FastAPI(
 
 allowed_origins = os.getenv(
     "ALLOWED_ORIGINS",
-    "http://localhost:4200,https://rafo-peach.vercel.app",
+    "http://localhost:4200,https://rafo-7ylwesa01-ash-labs1.vercel.app,https://rafo-git-develop-ash-labs1.vercel.app/",
 ).split(",")
 
 
